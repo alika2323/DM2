@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--TITULO-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+            <TextView
+                android:id="@+id/txt_imei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="IMEI DEL DM"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+
+
+        !--PREGUNTAS SECCION I-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="30dp"
+            >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/nombre"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/nombreWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <EditText
+                            android:id="@+id/nombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Nombre(s):"
+                            android:singleLine="true"
+                            android:layout_marginLeft="5dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/apaternoWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/apaterno"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Apellido Paterno:"
+                            android:singleLine="true"
+                            android:layout_marginLeft="5dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/amaternoWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/amaterno"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Apellido Materno:"
+                            android:inputType="textCapCharacters"
+                            android:singleLine="true"
+                            android:layout_marginLeft="5dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/telefono"
+
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tel_contactoWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+
+                        >
+                        <EditText
+                            android:id="@+id/tel_contacto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:hint="Tel. Contacto:"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tel_trabajoWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+
+                        >
+                        <EditText
+                            android:id="@+id/tel_trabajo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:hint="Tel. Trabajo:"
+                            android:inputType="number"
+                            android:maxLength="10"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/email"
+                        />
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/emailWrapper"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        >
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Correo electronico:"
+                            android:inputType="textEmailAddress"
+                            android:maxLength="50"
+                            android:layout_marginLeft="5dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/datos_adic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos adicionales"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+                <Button
+                    android:id="@+id/registrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REGISTRAR"
+                    />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hora"
+            />
+
+        <EditText
+            android:id="@+id/fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="fecha"
+            />
+
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

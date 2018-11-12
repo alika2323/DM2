@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TipoUsuario"
+    android:orientation="vertical"
+    android:background="@drawable/degradado"
+    >
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="@color/blanco"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TIPO DE INGRESO"
+        />
+
+
+    <TextView
+        android:id="@+id/instrucciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Si ya cuentas con tu clave de usuario ingresala en el campo correspondiente de lo contrario realiza tu registro."
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLAVE USUARIO"
+        />
+
+    <EditText
+        android:id="@+id/edt_clave_usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="codigo usuario"
+        />
+
+
+    <Button
+        android:id="@+id/btn_usuario_existente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VERIFICAR CLAVE DE USUARIO"
+        />
+
+
+    <Button
+        android:id="@+id/btn_usuario_nuevo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REGISTRARSE"
+        />
+
+
+</LinearLayout>
+</ScrollView>
