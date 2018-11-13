@@ -7,4 +7,10 @@
     <color name="blanco">#ffffff</color>
     <color name="transparente">#00ffffff</color>
     <color name="warning">#dcf5101c</color>
+    <color name="gris">#dcb6b6b5</color>
+    <color name="azul_claro">#dc62a0ab</color>
+    <color name="naranja">#eac9aa</color>
+    <color name="cafe_gris">#696969</color>
+    <color name="azulito">#0facb0</color>
+
 </resources>

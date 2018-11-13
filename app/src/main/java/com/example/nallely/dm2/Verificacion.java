@@ -47,10 +47,12 @@ public class Verificacion extends AppCompatActivity {
         setContentView(R.layout.activity_verificacion);
 
 
+        /* Enlazando elementos */
         codigo_verificar=(EditText)findViewById(R.id.codigo_verifica);
         btn_verificar=(Button)findViewById(R.id.btn_verificar);
 
 
+        /* Enlazando evento: btn_verificar */
         btn_verificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +71,6 @@ public class Verificacion extends AppCompatActivity {
         Thread tr=new Thread(){
             @Override
             public void run() {
-
                 final String resultado= POST("Validate","tokenProject", codigo_verificar );
                 System.out.println("resultado"+resultado);
 
@@ -89,8 +90,6 @@ public class Verificacion extends AppCompatActivity {
                                 miBundle.putString("codigo_proyecto",codigo_verificar);
                                 intent.putExtras(miBundle);
                                 startActivity(intent);
-
-
                             }else{
                                 String valor_error= res.getString("DATOS");
                                 Toast.makeText(Verificacion.this,valor_error, Toast.LENGTH_SHORT).show();

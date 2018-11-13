@@ -120,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        /*  OBTENER IMEI */
         obtener_imei();
 
-
+        /*  TOMAR FOTOGRAFIA USUARIO */
         tomar_foto();
 
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                    diaa=c.get(Calendar.DAY_OF_MONTH);
                    mess=c.get(Calendar.MONTH);
                    anoo=c.get(Calendar.YEAR);
-                   fecha_nacimiento=dayOfMonth+"-"+(month+1)+"-"+year;
+                   fecha_nacimiento=dayOfMonth+"/"+(month+1)+"/"+year;
                    fecha.setText(fecha_nacimiento);
 
                }
@@ -166,64 +166,75 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-         String  d_nombre=((EditText)findViewById(R.id.nombre)).getText().toString();
+             String  d_nombre=((EditText)findViewById(R.id.nombre)).getText().toString();
+
+
+                /* nombre,
+                 * apellido_paterno
+                 * apellido_materno
+                 * telefono_casa
+                 * telefono_celular
+                 * email
+                 * contraseña
+                 * confirmar_contraseña
+                 * perfil:default
+                 * rol:dm
+                 * nombreImagen
+                  * */
+
+
+                if (!TextUtils.isEmpty(d_nombre)){
+
+                    ArrayList values=new ArrayList();
+                    final JSONArray data;
+                /*DATOS*/
+                    values.add(d_nombre);
+                    values.add(((EditText)findViewById(R.id.apaterno)).getText());
+                    values.add(((EditText)findViewById(R.id.amaterno)).getText());
+                    values.add(((EditText)findViewById(R.id.tel_contacto)).getText());
+                    values.add(((EditText)findViewById(R.id.tel_trabajo)).getText());
+                    values.add(nombreImagen);
+                    values.add("0");/*latitud*/
+                    values.add("0");/*longitud*/
+                    values.add("mexico"); /*estado*/
+                    values.add("ecatepec"); /*municipio*/
+                    values.add("1");/*tipo usuario*/
+                    values.add("1");/*perfil*/
+                    values.add(((EditText)findViewById(R.id.email)).getText());
+                    values.add("12345");
+                    values.add(imei_dato);
+                    values.add(clave);/*CLAVEPROYECTO*/
+                    values.add(fecha_nacimiento);/*CURP*/
+                    values.add("1");/*validacion*/
+
+
+
+                    data=new JSONArray( values );
+                    System.out.println("primero");
+
+                    alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog.setTitle("STATUS REGISTRO");
+                    alertDialog.setMessage("Procesando el registro....");
+                    //SystemClock.sleep(1000)
+                    alertDialog.show();
 
 
 
 
 
-if (!TextUtils.isEmpty(d_nombre)){
 
-    ArrayList values=new ArrayList();
-    final JSONArray data;
-/*DATOS*/
-    values.add(d_nombre);
-    values.add(((EditText)findViewById(R.id.apaterno)).getText());
-    values.add(((EditText)findViewById(R.id.amaterno)).getText());
-    values.add(((EditText)findViewById(R.id.tel_contacto)).getText());
-    values.add(((EditText)findViewById(R.id.tel_trabajo)).getText());
-    values.add(nombreImagen);
-    values.add("0");/*latitud*/
-    values.add("0");/*longitud*/
-    values.add("mexico");
-    values.add("ecatepec");
-    values.add("1");/*tipo usuario*/
-    values.add("1");/*perfil*/
-    values.add(((EditText)findViewById(R.id.email)).getText());
-    values.add("12345");
-    values.add(imei_dato);
-    values.add(clave);/*CLAVEPROYECTO*/
-    values.add(fecha_nacimiento);/*CURP*/
-    values.add("1");/*validacion*/
+                    Thread tr=new Thread(){
+                        @Override
+                        public void run() {
+                            POST(path,"Users","putUser",data.toString());
+                            System.out.println("resultado"+resultado);
 
-
-
-    data=new JSONArray( values );
-    System.out.println("primero");
-
-    alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-    alertDialog.setTitle("STATUS REGISTRO");
-    alertDialog.setMessage("Procesando el registro....");
-    //SystemClock.sleep(1000)
-    alertDialog.show();
-
-
-
-
-
-
-    Thread tr=new Thread(){
-        @Override
-        public void run() {
-            POST(path,"Users","putUser",data.toString());
-            System.out.println("resultado"+resultado);
-
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    // System.out.println(resultado);
-                }
-            });
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // System.out.println(resultado);
+                                }
+                            });
         }
     };
 

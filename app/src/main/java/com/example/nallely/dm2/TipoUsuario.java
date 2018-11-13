@@ -50,8 +50,6 @@ public class TipoUsuario extends AppCompatActivity  {
         btn_verificar_usuario=(Button)findViewById(R.id.btn_usuario_existente);
         btn_usuario_nuevo=(Button)findViewById(R.id.btn_usuario_nuevo);
 
-        /* Obtener dato de input */
-
 
 
         /* Enlazando evento: btn_verificar_usuario*/
@@ -66,7 +64,7 @@ public class TipoUsuario extends AppCompatActivity  {
 
 
 
-
+        /* Enlazando evento:  btn_usuario_nuevo*/
         btn_usuario_nuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
