@@ -1,6 +1,9 @@
 package com.example.nallely.dm2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,12 +41,15 @@ public class TipoUsuario extends AppCompatActivity  {
     private String resultado;
     Button btn_verificar_usuario, btn_usuario_nuevo;
     String dato_codigo_usuario;
+    Number resp_conexion=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_usuario);
 
+        String conexion_verificar=getResp_conexion().toString();
+        Toast.makeText(this, "La conexion fue: " + conexion_verificar, Toast.LENGTH_SHORT).show();
 
         /* Enlazando elementos */
         codigo_usuario=(EditText)findViewById(R.id.edt_clave_usuario);
@@ -72,8 +78,6 @@ public class TipoUsuario extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
-
-
     }
 
 
@@ -140,12 +144,22 @@ public class TipoUsuario extends AppCompatActivity  {
             resultPOST= EntityUtils.toString(ent);
         }catch (Exception e){}
 
-
         return resultPOST;
-
-
-
     }
 
 
+    public Number getResp_conexion() {
+        ConnectivityManager connectivity=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info_wifi = connectivity.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo info_datos = connectivity.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        if (String.valueOf(info_wifi.getState()).equals("CONNECTED") || String.valueOf(info_datos.getState()).equals("CONNECTED")){
+            Toast.makeText(this, "Conexión detectada", Toast.LENGTH_SHORT).show();
+            resp_conexion=1;
+        } else{
+            Toast.makeText(this, "SIN CONEXION", Toast.LENGTH_SHORT).show();
+            resp_conexion=0;
+        }
+        return resp_conexion;
+    }
 }

@@ -14,7 +14,7 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:src="@drawable/candado_3"
+        android:src="@drawable/proyecto3"
         />
 
     <TextView
@@ -29,7 +29,7 @@
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Para continuar con el registro ingresa el codigo de verificación del proyecto"
+    android:text="Por seguridad ingresa el codigo de verificación del proyecto"
     android:layout_marginLeft="25dp"
     android:layout_marginRight="20dp"
     android:layout_marginTop="20dp"
@@ -50,17 +50,28 @@
 
 
 
-
-
-    <Button
+    <!--Button
         android:id="@+id/btn_verificar"
         android:layout_width="250dp"
         android:layout_height="50dp"
         style="@style/btn_verificacion"
         android:text="VERIFICAR"
         android:layout_marginTop="25dp"
-        />
+        /-->
 
+
+    <Button
+        android:id="@+id/btn_verificar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp"
+        android:text="VERIFICAR CLAVE"
+        android:textColor="@color/blanco"
+        android:background="@color/azulito"
+        />
 
 
 
