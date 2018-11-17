@@ -205,7 +205,7 @@
                             android:id="@+id/email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Correo electronico:"
+                            android:hint="Correo Electronico:"
                             android:inputType="textEmailAddress"
                             android:maxLength="50"
                             android:layout_marginLeft="5dp"
@@ -241,7 +241,7 @@
             android:id="@+id/btn_fecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hora"
+            android:text="Fecha de nacimiento"
             />
 
         <EditText

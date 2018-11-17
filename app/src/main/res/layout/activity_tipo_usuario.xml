@@ -7,7 +7,6 @@
     tools:context=".TipoUsuario"
     android:orientation="vertical"
     android:background="@drawable/fondo4"
-
     >
 
 

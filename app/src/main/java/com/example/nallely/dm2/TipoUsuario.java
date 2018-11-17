@@ -1,9 +1,12 @@
 package com.example.nallely.dm2;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,8 +51,26 @@ public class TipoUsuario extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipo_usuario);
 
+
+
+        /* Obteniendo permisos */
+
+
+
+
+
+
+
+
+
+
+
+
+
         String conexion_verificar=getResp_conexion().toString();
-        Toast.makeText(this, "La conexion fue: " + conexion_verificar, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "La conexion fue: " + conexion_verificar, Toast.LENGTH_SHORT).show();
+
+
 
         /* Enlazando elementos */
         codigo_usuario=(EditText)findViewById(R.id.edt_clave_usuario);
@@ -79,6 +100,13 @@ public class TipoUsuario extends AppCompatActivity  {
             }
         });
     }
+
+
+
+
+
+
+
 
 
 
@@ -120,7 +148,6 @@ public class TipoUsuario extends AppCompatActivity  {
 
         tr.start();
 
-
     }
 
 
@@ -154,10 +181,9 @@ public class TipoUsuario extends AppCompatActivity  {
         NetworkInfo info_datos = connectivity.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 
         if (String.valueOf(info_wifi.getState()).equals("CONNECTED") || String.valueOf(info_datos.getState()).equals("CONNECTED")){
-            Toast.makeText(this, "Conexión detectada", Toast.LENGTH_SHORT).show();
             resp_conexion=1;
         } else{
-            Toast.makeText(this, "SIN CONEXION", Toast.LENGTH_SHORT).show();
+            Toasty.error(TipoUsuario.this, "El dispositivo no cuenta con señal 3G o datos moviles, debes conectarlo para realizar el registro.", Toast.LENGTH_LONG,true).show();
             resp_conexion=0;
         }
         return resp_conexion;

@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         adicionales=(TextView)findViewById(R.id.datos_adic);
         Bundle miBundle=this.getIntent().getExtras();
         if (miBundle != null) {
-           clave=miBundle.getString("codigo_proyecto");
+           clave=miBundle.getString("idProyecto");
             adicionales.setText(clave);
 
         }
@@ -188,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList values=new ArrayList();
                     final JSONArray data;
                 /*DATOS*/
+                /* IDUSUARIO*/
                     values.add(d_nombre);
                     values.add(((EditText)findViewById(R.id.apaterno)).getText());
                     values.add(((EditText)findViewById(R.id.amaterno)).getText());
@@ -220,9 +221,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
                     Thread tr=new Thread(){
                         @Override
                         public void run() {
@@ -232,13 +230,15 @@ public class MainActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    // System.out.println(resultado);
+                                     System.out.println(resultado);
                                 }
                             });
         }
     };
 
     tr.start();
+
+
 
     //POST("INSERTAR",data.toString());
 
@@ -268,36 +268,33 @@ public class MainActivity extends AppCompatActivity {
         imei = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         final StringBuilder builder = new StringBuilder();
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        builder.append("IMEI:").append(imei.getDeviceId()).append("\n");
-
-        txt_imei.setText(builder.toString());
-
-        //imei_dato = imei.getDeviceId();
-
-
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE ) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return ;
+            Toast.makeText(this, "SIN PERMISOS", Toast.LENGTH_LONG).show();
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE }, 225);
+
+      return;
         }else{
+            Toast.makeText(this, "CON PERMISOS", Toast.LENGTH_LONG).show();
             imei_dato=imei.getDeviceId();
         }
+
+        builder.append("IMEI:  ").append(imei.getDeviceId()).append("\n");
+        txt_imei.setText(builder.toString());
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /*   C-TOMAR FOTO */

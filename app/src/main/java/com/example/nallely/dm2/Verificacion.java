@@ -34,6 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import es.dmoral.toasty.Toasty;
+
 public class Verificacion extends AppCompatActivity {
     EditText codigo_verificar;
     private AlertDialog alertDialog;
@@ -68,7 +70,7 @@ public class Verificacion extends AppCompatActivity {
     public void verificar(final String codigo_verificar) {
 
 
-        Thread tr=new Thread(){
+        Thread tr = new Thread(){
             @Override
             public void run() {
                 final String resultado= POST("Validate","tokenProject", codigo_verificar );
@@ -81,19 +83,20 @@ public class Verificacion extends AppCompatActivity {
                         try {
                             JSONObject res=new JSONObject(resultado);
 
+                            String idProyecto=res.getString("DATOS");
+                            System.out.println("respuestita2"+ idProyecto);
                              Boolean valor= Boolean.valueOf(res.getString("CODIGO"));
                             System.out.println(valor);
 
                             if (valor){
                                 Intent intent=new Intent(Verificacion.this, MainActivity.class);
                                 Bundle miBundle=new Bundle();
-                                miBundle.putString("codigo_proyecto",codigo_verificar);
+                                miBundle.putString("idProyecto",idProyecto);
                                 intent.putExtras(miBundle);
                                 startActivity(intent);
                             }else{
                                 String valor_error= res.getString("DATOS");
-                                Toast.makeText(Verificacion.this,valor_error, Toast.LENGTH_SHORT).show();
-
+                                Toasty.error(Verificacion.this, "La clave proporcionada es incorrecta ", Toast.LENGTH_SHORT,true).show();
                             }
 
                         } catch (JSONException e) {
